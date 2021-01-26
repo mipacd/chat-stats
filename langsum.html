@@ -1,0 +1,97 @@
+<head>
+	<head>
+	<title>HoloChatStats</title>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+	<script src="js/chart-defs.js"></script>
+	<script>
+window.onload = function() {
+	var njpmctx = document.getElementById('nonjpmean').getContext('2d');
+	window.nonjpmean = new Chart(njpmctx, njpm_config);
+	var jpmctx = document.getElementById('jpmean').getContext('2d');
+	window.jpmean = new Chart(jpmctx, jpm_config);
+	var njpstdctx = document.getElementById('nonjpstddev').getContext('2d');
+	window.nonjpstddev = new Chart(njpstdctx, njpstd_config);
+	var jpstdctx = document.getElementById('jpstddev').getContext('2d');
+	window.jpstddev = new Chart(jpstdctx, jpstd_config);
+};
+</script>
+<style>
+	body {
+		padding-top: 65px;
+	}
+	.graphs {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: 50vw 50vw;
+		grid-template-rows: auto;
+	}
+</style>
+</head>
+<body style="background-color:#221F1E;">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="index.html">HoloChatStats</a>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Category
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
+						<h6 class="dropdown-header">Language</h6>
+						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp.html">Non-JP % (HoloJP)</a>
+						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars.html">Non-JP % (HoloStars)</a>
+						<a class="dropdown-item" id="jp-stats" href="jp-holoiden.html">JP % (HoloID/HoloEN)</a>
+						<a class="dropdown-item" id="ru-holojp" href="ru-holojp.html">RU % (HoloJP)</a>
+						<a class="dropdown-item" id="ru-other" href="ru-other.html">RU % (HoloStars/HoloID/HoloEN)</a>
+						<a class="dropdown-item" id="lang-summary" href="langsum.html">Language Summary Stats</a>
+						<h6 class="dropdown-header">Live Translations</h6>
+						<a class="dropdown-item" id="en-live-tl" href="en-livetl.html">English Live Translations</a>
+						<h6 class="dropdown-header">User Stats</h6>
+						<a class="dropdown-item" id="common-chat" href="common-chat.html">Common User Heatmap</a>
+						<a class="dropdown-item" id="excl-chat" href="excl-chat.html">Exclusive Chat Users</a>
+						<h6 class="dropdown-header">Other Stats</h6>
+						<a class="dropdown-item" id="stream-time" href="stream-time.html">Stream Time Stats</a>
+				</div>
+				</div>
+			</div>
+		</ul>
+				<ul class="navbar-nav ml-auto">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="sitesButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Other Sites
+				</button>
+				<div class="dropdown-menu scrollable-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="siteList">
+						<h6 class="dropdown-header">Machine Generated Clips</h6>
+						<a class="dropdown-item" id="non-jp-holojp" href="https://mipacd.github.io/auto-clip/holo.html">HoloAutoClip</a>
+						<a class="dropdown-item" id="non-jp-holostars" href="https://mipacd.github.io/auto-clip/vt.html">VTAutoClip</a>
+				</div>
+		</div>
+		</ul>
+		</div>
+	</nav>
+	<div class="graphs">
+		<div style="width: 48vw">
+			<canvas id="nonjpmean"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="jpmean"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="nonjpstddev"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="jpstddev"></canvas>
+		</div>
+	</div>
+</body>
