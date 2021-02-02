@@ -39,24 +39,47 @@
 		<ul class="navbar-nav mr-auto">
 			<div class="dropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Category
+					Language
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<h6 class="dropdown-header">Language</h6>
 						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp.html">Non-JP % (HoloJP)</a>
 						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars.html">Non-JP % (HoloStars)</a>
 						<a class="dropdown-item" id="jp-stats" href="jp-holoiden.html">JP % (HoloID/HoloEN)</a>
 						<a class="dropdown-item" id="ru-holojp" href="ru-holojp.html">RU % (HoloJP)</a>
 						<a class="dropdown-item" id="ru-other" href="ru-other.html">RU % (HoloStars/HoloID/HoloEN)</a>
 						<a class="dropdown-item" id="lang-summary" href="langsum.html">Language Summary Stats</a>
-						<h6 class="dropdown-header">Live Translations</h6>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Translations
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
 						<a class="dropdown-item" id="en-live-tl" href="en-livetl.html">English Live Translations</a>
 						<a class="dropdown-item" id="en-live-tl" href="en-tl-stream.html">English Top Live Translated Streams</a>
-						<h6 class="dropdown-header">User Stats</h6>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Users
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
 						<a class="dropdown-item" id="common-chat" href="common-chat.html">Common User Heatmap</a>
 						<a class="dropdown-item" id="excl-chat" href="excl-chat.html">Exclusive Chat Users</a>
-						<h6 class="dropdown-header">Other Stats</h6>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Other
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time.html">Stream Time Stats</a>
 				</div>
 				</div>
@@ -84,8 +107,8 @@
 	<h3>Language</h3>
 	<p>Percentages reflect chat messages that do/don't contain Japanese or Russian characters. Messages containing only Unicode emojis or membership stickers are ignored.</p>
 	<h3>Translations</h3>
-	<p>Data is based on the number of chat messages starting from a list of known translation tags. Streams designated as English streams on Japanese language channels and covers are ignored.</p>
-	<h3>Common/Exclusive Users</h3>
+	<p>Data is based on the number of chat messages starting from a list of known translation tags. Streams designated as English streams on Japanese language channels and covers are ignored. The top live translated streams list shows streams that have an average of one translation per minute or more. These streams are best enjoyed with the LiveTL (<a href="https://chrome.google.com/webstore/detail/livetl-translation-filter/moicohcfhhbmmngneghfjfjpdobmmnlg" target="_blank">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/livetl/" target="_blank">Firefox</a>) or ytcfilter (<a href="https://chrome.google.com/webstore/detail/ytcfilter/mnldnbhgfocmkehnlkeanlhfmopepnko" target="_blank">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/ytcfilter/" target="_blank">Firefox</a>) extensions.</p>
+	<h3>Users</h3>
 	<p>The common user heatmap is a matrix containing percentages of a member's chat that have commented in another member's chat in a given month. Mouse over each square to view the exact value. The exclusive user charts show the percentage of a member's chat that did not comment in any other member's chat in a given month.</p>
 	<h3>Stream Time</h3>
 	<p>Stream times are based on data of public streams reported by the YouTube API at the time of retrieval. Times are on a per-channel basis and do not reflect time in collabs on other channels.</p>
