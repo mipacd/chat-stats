@@ -1,17 +1,14 @@
 <head>
 	<head>
-	<title>HoloChatStats: English Live Translations</title>
+	<title>HoloChatStats: English Top Live Translated Streams</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="js/jquery.csv.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
-	<script src="js/chart-defs.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XPX4HFYKX"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
@@ -21,131 +18,34 @@
 	  gtag('config', 'G-9XPX4HFYKX');
 	</script>
 	<script>
-function updateChart() {
-	$("canvas#tlchart").remove();
-	$("canvas#tlchart2").remove();
-	$("#tldiv").append('<canvas id="tlchart"></canvas>');
-	$("#tldiv2").append('<canvas id="tlchart2"></canvas>');
-	Chart.defaults.global.defaultFontColor = "#DADADA";
-	var config = {
-	type: 'bar',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'English Live Translations per Minute: ' + $("#chartType option:selected").text()
-		},
-		legend: {
-			display: false
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Member'
-				},
-				ticks: {
-					autoSkip: false
+	function update() {
+		filename = "csv/tl/enstr/" + $("#monthPicker").val() + ".csv";
+		$("#stream_row").text('');
+		$.get(filename, function(data) {
+			var streamArr = $.csv.toArrays(data);
+			for (var i = 0; i < streamArr.length; i++) {
+				if (i == 0) {
+					continue;
 				}
-			}],
-			yAxes: [{
-				id: 'tpm',
-				gridLines: {
-					drawOnChartArea: true
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Translations per Minute'
-				},
-				ticks: {
-					suggestedMin: 0
+				else {
+					item_txt = ""
+					item_txt += '<div class="col-md-4"><div class="thumbnail"><a href="https://www.youtube.com/watch?v=' + streamArr[i][3] + '"><img src="https://img.youtube.com/vi/' + streamArr[i][3] + '/mqdefault.jpg"><div class="caption"><p>' + streamArr[i][0] + ' - ' + streamArr[i][1] + '<br/>TPM: ' + streamArr[i][2] + '</p></div></div></a></div></div>';
+					$("#stream_row").append(item_txt);
 				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/tl/en/' + $("#chartType").val() + '.csv',
-				delimiter: ',',
-				rowMapping: 'index',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
 			}
-		}
+		}, 'text');
 	}
-	};
-	var num_config = {
-	type: 'bar',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Total English Live Translations: ' + $("#chartType option:selected").text()
-		},
-		legend: {
-			display: false
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Member'
-				},
-				ticks: {
-					autoSkip: false
-				}
-			}],
-			yAxes: [{
-				id: 'tpm',
-				gridLines: {
-					drawOnChartArea: true
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Translation Count'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/tl/en/' + $("#chartType").val() + '_total.csv',
-				delimiter: ',',
-				rowMapping: 'index',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-	};
-	var ctx = document.getElementById('tlchart').getContext('2d');
-	window.tlchart = new Chart(ctx, config);
-	var ctx2 = document.getElementById('tlchart2').getContext('2d');
-	window.tlchart2 = new Chart(ctx2, num_config);
-}
-window.onload = function() {
-	$("#chartType").on('change', updateChart)
-	updateChart();
-};
-</script>
+	$(document).ready(function() {
+		update($("#monthPicker").val());
+		$("#monthPicker").on('change', update);
+	});
+	</script>
 <style>
 	body {
 		padding-top: 65px;
 	}
-	.graphs {
-		display: grid;
-		grid-auto-flow: row;
-		grid-template-columns: 50vw 50vw;
-		grid-template-rows: auto;
+	p, h3 {
+		color: #DEDEDE;
 	}
 </style>
 </head>
@@ -194,23 +94,20 @@ window.onload = function() {
 		</ul>
 		</div>
 	</nav>
+		<h3>Top Live Translated Streams of the Month (average translations per minute is 1 or more)</h3>
 		<label style="color: #DEDEDE">Month: </label>
-		<select id="chartType">
-			<option value="hl-2021-01">Janurary 2021</option>
-			<option value="hl-2020-12">December 2020</option>
-			<option value="hl-2020-11">November 2020</option>
-			<option value="hl-2020-10">October 2020</option>
-			<option value="hl-2020-09">September 2020</option>
-			<option value="hl-2020-08">August 2020</option>
-			<option value="hl-2020-07">July 2020</option>
-			<option value="hl-2020-06">June 2020</option>
+		<select id="monthPicker">
+			<option value="2021-01">January 2021</option>
+			<option value="2020-12">December 2020</option>
+			<option value="2020-11">November 2020</option>
+			<option value="2020-10">October 2020</option>
+			<option value="2020-09">September 2020</option>
+			<option value="2020-08">August 2020</option>
+			<option value="2020-07">July 2020</option>
+			<option value="2020-06">June 2020</option>
 		</select>
-	<div class="graphs">
-		<div id="tldiv">
-			<canvas id="tlchart"></canvas>
-		</div>
-		<div id="tldiv2">
-			<canvas id="tlchart2"></canvas>
+	<div id="stream_ctr" class="container-fluid">
+		<div id="stream_row" class="row">
 		</div>
 	</div>
 </body>
