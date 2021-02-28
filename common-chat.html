@@ -95,7 +95,7 @@ function updateChart() {
         tooltip
           .html("Percent of " + d.from  + "'s chat users in " + d.to + "'s chat: " + d.value)
           .style("left", d3.mouse(this)[0] + 70 + "px")
-          .style("top", d3.mouse(this)[1] + "px");
+          .style("top", d3.mouse(this)[1] + 75 + "px");
       };
       var mouseleave = function (d) {
         tooltip.style("opacity", 0);
@@ -228,6 +228,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2021-02">February 2021</option>
 			<option value="hl-2021-01">January 2021</option>
 			<option value="hl-2020-12">December 2020</option>
 			<option value="hl-2020-11">November 2020</option>
