@@ -27,8 +27,7 @@ var gen0_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -72,8 +71,7 @@ var gen1_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -117,8 +115,7 @@ var gen2_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -162,8 +159,7 @@ var gmr_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -207,8 +203,7 @@ var gen3_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -252,8 +247,7 @@ var gen3_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -297,8 +291,7 @@ var gen4_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -342,8 +335,7 @@ var gen5_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -387,8 +379,7 @@ var hs1_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 80
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -432,8 +423,7 @@ var hs2_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 80
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -477,8 +467,7 @@ var id_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 14
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -522,8 +511,7 @@ var en_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 14
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -567,8 +555,7 @@ var gen0ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -612,8 +599,7 @@ var gen1ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -657,8 +643,7 @@ var gen2ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -702,8 +687,7 @@ var gmrru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -747,8 +731,7 @@ var gen3ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -792,8 +775,7 @@ var gen4ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -837,8 +819,7 @@ var gen5ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -882,8 +863,7 @@ var hs1ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -927,8 +907,7 @@ var hs2ru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -972,8 +951,7 @@ var idru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1017,8 +995,7 @@ var enru_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1062,8 +1039,7 @@ var njpm_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1107,8 +1083,7 @@ var jpm_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1152,8 +1127,7 @@ var njpstd_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1197,8 +1171,7 @@ var jpstd_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1242,8 +1215,7 @@ var gen0ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1287,8 +1259,7 @@ var gen1ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1332,8 +1303,7 @@ var gen2ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1377,8 +1347,7 @@ var gmrex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1422,8 +1391,7 @@ var gen3ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1467,8 +1435,7 @@ var gen4ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1512,8 +1479,7 @@ var gen5ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1557,8 +1523,7 @@ var hs1ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1602,8 +1567,7 @@ var hs2ex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1647,8 +1611,7 @@ var idex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
@@ -1692,8 +1655,7 @@ var enex_config = {
 					labelString: 'Percent'
 				},
 				ticks: {
-					suggestedMin: 0//,
-					//suggestedMax: 70
+					suggestedMin: 0
 				}
 			}]
 		},
