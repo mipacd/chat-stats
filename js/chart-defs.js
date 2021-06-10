@@ -46,6 +46,50 @@ var gen0_config = {
 		}
 	}
 };
+var gen0r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen0)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen0-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var gen1_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -79,6 +123,50 @@ var gen1_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-nonjp-gen1.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var gen1r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen1-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -134,6 +222,50 @@ var gen2_config = {
 		}
 	}
 };
+var gen2r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen2-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var gmr_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -178,13 +310,13 @@ var gmr_config = {
 		}
 	}
 };
-var gen3_config = {
+var gmrr_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Non-JP Percentage (HoloJP Gen3)'
+			text: 'Non-JP Rate (HoloJP Gamers)'
 		},
 		scales: {
 			xAxes: [{
@@ -194,13 +326,13 @@ var gen3_config = {
 				}
 			}],
 			yAxes: [{
-				id: 'percent',
+				id: 'rate',
 				gridLines: {
 					drawOnChartArea: false
 				},
 				scaleLabel: {
 					display: true,
-					labelString: 'Percent'
+					labelString: 'Avg. Msg per Min'
 				},
 				ticks: {
 					suggestedMin: 0
@@ -210,7 +342,7 @@ var gen3_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/hl-nonjp-gen3.csv',
+				url: 'csv/hl-nonjp-gamers-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -255,6 +387,50 @@ var gen3_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-nonjp-gen3.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var gen3r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen3)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen3-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -310,6 +486,50 @@ var gen4_config = {
 		}
 	}
 };
+var gen4r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen4)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen4-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var gen5_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -343,6 +563,50 @@ var gen5_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-nonjp-gen5.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var gen5r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen5)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen5-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -398,6 +662,50 @@ var hs1_config = {
 		}
 	}
 };
+var hs1r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloStars Gen1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-hstars1-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var hs2_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -431,6 +739,50 @@ var hs2_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-nonjp-hstars2.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var hs2r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloStars Gen2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-hstars2-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -486,6 +838,50 @@ var id_config = {
 		}
 	}
 };
+var idr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate (HoloID)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-id-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var en_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -519,6 +915,50 @@ var en_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-en.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var enr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate (HoloEN)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-en-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -1020,7 +1460,7 @@ var njpm_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'Non-JP Mean'
+			text: 'Non-JP Mean Percent'
 		},
 		scales: {
 			xAxes: [{
@@ -1058,13 +1498,57 @@ var njpm_config = {
 		}
 	}
 };
+var njpr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Mean Rate'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-mean-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var jpm_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'JP Mean'
+			text: 'JP Mean Percent'
 		},
 		scales: {
 			xAxes: [{
@@ -1102,13 +1586,57 @@ var jpm_config = {
 		}
 	}
 };
+var jpr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Mean Rate'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-mean-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var njpstd_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Non-JP Standard Deviation'
+			text: 'Non-JP Percent Standard Deviation'
 		},
 		scales: {
 			xAxes: [{
@@ -1146,13 +1674,57 @@ var njpstd_config = {
 		}
 	}
 };
+var njpstdr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate Standard Deviation'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-stdev-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var jpstd_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'JP Standard Deviation'
+			text: 'JP Percent Standard Deviation'
 		},
 		scales: {
 			xAxes: [{
@@ -1179,6 +1751,50 @@ var jpstd_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-stdev.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var jpstdr_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate Standard Deviation'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-stdev-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,

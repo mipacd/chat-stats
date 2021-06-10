@@ -24,12 +24,20 @@
 window.onload = function() {
 	var njpmctx = document.getElementById('nonjpmean').getContext('2d');
 	window.nonjpmean = new Chart(njpmctx, njpm_config);
+	var njprctx = document.getElementById('nonjpmeanr').getContext('2d');
+	window.nonjpmeanr = new Chart(njprctx, njpr_config);
 	var jpmctx = document.getElementById('jpmean').getContext('2d');
 	window.jpmean = new Chart(jpmctx, jpm_config);
+	var jprctx = document.getElementById('jpmeanr').getContext('2d');
+	window.jpmeanr = new Chart(jprctx, jpr_config);
 	var njpstdctx = document.getElementById('nonjpstddev').getContext('2d');
 	window.nonjpstddev = new Chart(njpstdctx, njpstd_config);
+	var njpstdrctx = document.getElementById('nonjpstddevr').getContext('2d');
+	window.nonjpstddevr = new Chart(njpstdrctx, njpstdr_config);
 	var jpstdctx = document.getElementById('jpstddev').getContext('2d');
 	window.jpstddev = new Chart(jpstdctx, jpstd_config);
+	var jpstdrctx = document.getElementById('jpstddevr').getContext('2d');
+	window.jpstddevr = new Chart(jpstdrctx, jpstdr_config);
 };
 </script>
 <style>
@@ -117,13 +125,25 @@ window.onload = function() {
 			<canvas id="nonjpmean"></canvas>
 		</div>
 		<div style="width: 48vw">
+			<canvas id="nonjpmeanr"></canvas>
+		</div>
+		<div style="width: 48vw">
 			<canvas id="jpmean"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="jpmeanr"></canvas>
 		</div>
 		<div style="width: 48vw">
 			<canvas id="nonjpstddev"></canvas>
 		</div>
 		<div style="width: 48vw">
+			<canvas id="nonjpstddevr"></canvas>
+		</div>
+		<div style="width: 48vw">
 			<canvas id="jpstddev"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="jpstddevr"></canvas>
 		</div>
 	</div>
 </body>
