@@ -22,10 +22,11 @@
 		var sortKey = $("#sorting").val();
 		if(sortKey == "TPM"){
 			// Sort reversed so the max tpm is up top
-			return streamArr.sort((first, second) => first[2] < second[2]);
+			// Apparently "1" > "2" is defined differently in different browsers, so subtraction is used here
+			return streamArr.sort((first, second) => second[2] - first[2]);
 		}
 		else if(sortKey == "Streamer"){
-			return streamArr.sort((first, second) => first[0] > second[0]);
+			return streamArr.sort((first, second) => first[0].localeCompare(second[0]));
 		}
 		else {
 			return streamArr;
@@ -36,14 +37,14 @@
 		$("#stream_row").text('');
 		$.get(filename, function(data) {
 			var streamArr = $.csv.toArrays(data);
-			streamArr = sortBySelection(streamArr);
+			var streamSorted = sortBySelection(streamArr);
 			for (var i = 0; i < streamArr.length; i++) {
 				if (i == 0) {
 					continue;
 				}
 				else {
 					item_txt = ""
-					item_txt += '<div class="col-md-4"><div class="thumbnail"><a href="https://www.youtube.com/watch?v=' + streamArr[i][3] + '" target="_blank"><img src="https://img.youtube.com/vi/' + streamArr[i][3] + '/mqdefault.jpg"><div class="caption"><p>' + streamArr[i][0] + ' - ' + streamArr[i][1] + '<br/>TPM: ' + streamArr[i][2] + '</p></div></div></a></div></div>';
+					item_txt += '<div class="col-md-4"><div class="thumbnail"><a href="https://www.youtube.com/watch?v=' + streamSorted[i][3] + '" target="_blank"><img src="https://img.youtube.com/vi/' + streamSorted[i][3] + '/mqdefault.jpg"><div class="caption"><p>' + streamSorted[i][0] + ' - ' + streamSorted[i][1] + '<br/>TPM: ' + streamSorted[i][2] + '</p></div></div></a></div></div>';
 					$("#stream_row").append(item_txt);
 				}
 			}
