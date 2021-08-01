@@ -18,18 +18,33 @@
 	  gtag('config', 'G-9XPX4HFYKX');
 	</script>
 	<script>
+	function sortBySelection(streamArr){
+		var sortKey = $("#sorting").val();
+		if(sortKey == "TPM"){
+			// Sort reversed so the max tpm is up top
+			// Apparently "1" > "2" is defined differently in different browsers, so subtraction is used here
+			return streamArr.sort((first, second) => second[2] - first[2]);
+		}
+		else if(sortKey == "Streamer"){
+			return streamArr.sort((first, second) => first[0].localeCompare(second[0]));
+		}
+		else {
+			return streamArr;
+		}
+	}
 	function update() {
 		filename = "csv/tl/enstr/" + $("#monthPicker").val() + ".csv";
 		$("#stream_row").text('');
 		$.get(filename, function(data) {
 			var streamArr = $.csv.toArrays(data);
+			var streamSorted = sortBySelection(streamArr);
 			for (var i = 0; i < streamArr.length; i++) {
 				if (i == 0) {
 					continue;
 				}
 				else {
 					item_txt = ""
-					item_txt += '<div class="col-md-4"><div class="thumbnail"><a href="https://www.youtube.com/watch?v=' + streamArr[i][3] + '" target="_blank"><img src="https://img.youtube.com/vi/' + streamArr[i][3] + '/mqdefault.jpg"><div class="caption"><p>' + streamArr[i][0] + ' - ' + streamArr[i][1] + '<br/>TPM: ' + streamArr[i][2] + '</p></div></div></a></div></div>';
+					item_txt += '<div class="col-md-4"><div class="thumbnail"><a href="https://www.youtube.com/watch?v=' + streamSorted[i][3] + '" target="_blank"><img src="https://img.youtube.com/vi/' + streamSorted[i][3] + '/mqdefault.jpg"><div class="caption"><p>' + streamSorted[i][0] + ' - ' + streamSorted[i][1] + '<br/>TPM: ' + streamSorted[i][2] + '</p></div></div></a></div></div>';
 					$("#stream_row").append(item_txt);
 				}
 			}
@@ -38,6 +53,7 @@
 	$(document).ready(function() {
 		update($("#monthPicker").val());
 		$("#monthPicker").on('change', update);
+		$("#sorting").on('change', update);
 	});
 	</script>
 <style>
@@ -133,6 +149,12 @@
 			<option value="2020-08">August 2020</option>
 			<option value="2020-07">July 2020</option>
 			<option value="2020-06">June 2020</option>
+		</select>
+		<label style="Color: #DEDEDE">Sort By: </label>
+		<select id="sorting">
+			<option value="None" selected>None</option>
+			<option value="TPM">TPM</option>
+			<option value="Streamer">Streamer</option>
 		</select>
 	<div id="stream_ctr" class="container-fluid">
 		<div id="stream_row" class="row">
