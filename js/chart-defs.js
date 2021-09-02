@@ -888,7 +888,7 @@ var en_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'JP Percentage (HoloEN)'
+			text: 'JP Percentage (HoloEN1)'
 		},
 		scales: {
 			xAxes: [{
@@ -932,7 +932,7 @@ var enr_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'JP Rate (HoloEN)'
+			text: 'JP Rate (HoloEN1)'
 		},
 		scales: {
 			xAxes: [{
@@ -959,6 +959,94 @@ var enr_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-en-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Percentage (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-en2.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-en2-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -1416,7 +1504,7 @@ var enru_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'RU Percentage (HoloEN)'
+			text: 'RU Percentage (HoloEN1)'
 		},
 		scales: {
 			xAxes: [{
@@ -1443,6 +1531,50 @@ var enru_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-ru-en.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2ru_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'RU Percentage (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-ru-en2.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -2252,7 +2384,7 @@ var enex_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'Exclusive Chat Users (HoloEN)'
+			text: 'Exclusive Chat Users (HoloEN1)'
 		},
 		scales: {
 			xAxes: [{
@@ -2279,6 +2411,50 @@ var enex_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/excl/hl-excl-en.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2ex_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Exclusive Chat Users (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/excl/hl-excl-en2.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
