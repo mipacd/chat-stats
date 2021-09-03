@@ -25,9 +25,11 @@ function updateChart() {
 	$("canvas#tlchart").remove();
 	$("canvas#tlchart2").remove();
 	$("canvas#tlchart3").remove();
+	$("canvas#tlchart4").remove();
 	$("#tldiv").append('<canvas id="tlchart"></canvas>');
 	$("#tldiv2").append('<canvas id="tlchart2"></canvas>');
 	$("#tldiv3").append('<canvas id="tlchart3"></canvas>');
+	$("#tldiv4").append('<canvas id="tlchart4"></canvas>');
 	Chart.defaults.global.defaultFontColor = "#DADADA";
 	var config1 = {
 	type: 'bar',
@@ -179,12 +181,64 @@ function updateChart() {
 		}
 	}
 	};
+	var config4 = {
+	type: 'bar',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Change Since Previous Month: ' + $("#chartType option:selected").text()
+		},
+		legend: {
+			display: false
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Member'
+				},
+				ticks: {
+					autoSkip: false
+				}
+			}],
+			yAxes: [{
+				id: 'hours',
+				gridLines: {
+					drawOnChartArea: true
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Hour Difference'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/time/' + $("#chartType").val() + '_change.csv',
+				delimiter: ',',
+				rowMapping: 'index',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+	};
 	var ctx = document.getElementById('tlchart').getContext('2d');
 	window.tlchart = new Chart(ctx, config1);
 	var ctx2 = document.getElementById('tlchart2').getContext('2d');
 	window.tlchart2 = new Chart(ctx2, config2);
 	var ctx3 = document.getElementById('tlchart3').getContext('2d');
 	window.tlchart3 = new Chart(ctx3, config3);
+	var ctx4 = document.getElementById('tlchart4').getContext('2d');
+	window.tlchart4 = new Chart(ctx4, config4);
 }
 window.onload = function() {
 	$("#chartType").on('change', updateChart)
@@ -252,6 +306,7 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time.html">Stream Time Stats</a>
+						<a class="dropdown-item" id="chat-makeup" href="chat-makeup.html">Avg. Chat Makeup</a>
 				</div>
 				</div>
 			</div>
@@ -299,6 +354,9 @@ window.onload = function() {
 		</div>
 		<div id="tldiv3">
 			<canvas id="tlchart3"></canvas>
+		</div>
+		<div id="tldiv4">
+			<canvas id="tlchart4"></canvas>
 		</div>
 	</div>
 </body>
