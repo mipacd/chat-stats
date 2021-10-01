@@ -36,9 +36,17 @@ function updateChart() {
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+  var path = "";
+  if ($("#minComments").val() != "1") {
+	path = "csv/common/" + $("#chartType").val() + "_" + $("#minComments").val() + ".csv";
+  }
+  else {
+	path = "csv/common/" + $("#chartType").val() + ".csv";
+  }
 
   d3.csv(
-    "csv/common/" + $("#chartType").val() + ".csv",
+    path,
     function (data) {
       var myGroups = d3
         .map(data, function (d) {
@@ -140,6 +148,7 @@ function updateChart() {
 }
 window.onload = function() {
 	$("#chartType").on('change', updateChart)
+	$("#minComments").on('change', updateChart)
 	updateChart();
 };
 </script>
@@ -229,6 +238,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2021-09">September 2021</option>
 			<option value="hl-2021-08">August 2021</option>
 			<option value="hl-2021-07">July 2021</option>
 			<option value="hl-2021-06">June 2021</option>
@@ -245,7 +255,13 @@ window.onload = function() {
 			<option value="hl-2020-07">July 2020</option>
 			<option value="hl-2020-06">June 2020</option>
 		</select>
-	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data.</div>
+		<label style="color: #DEDEDE">Min. Comments per Member: </label>
+		<select id="minComments">
+			<option value="1">1</option>
+			<option value="3">3</option>
+			<option value="10">10</option>
+		</select>
+	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data. Min. comments option available from September 2021 onwards.</div>
 	<div class="graphs">
 		<div id="hmdiv">
 		</div>
