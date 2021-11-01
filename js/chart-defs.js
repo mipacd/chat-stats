@@ -2994,3 +2994,91 @@ var hs2ts_config = {
 		}
 	}
 };
+var en1collab_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Channel Collab Percent (HoloEN1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: '%'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/misc/collab-en1.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2collab_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Channel Collab Percent (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: '%'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/misc/collab-en2.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
