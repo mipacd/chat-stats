@@ -618,6 +618,94 @@ var gen5r_config = {
 		}
 	}
 };
+var gen6_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Percentage (HoloJP Gen6)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen6.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var gen6r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloJP Gen6)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-gen6-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var hs1_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -2246,6 +2334,50 @@ var gen5ex_config = {
 		}
 	}
 };
+var gen6ex_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Exclusive Chat Users (HoloJP Gen6)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/excl/hl-excl-gen6.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var hs1ex_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -2719,6 +2851,50 @@ var gen5ts_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/time/hl-ts-gen5.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var gen6ts_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Channel Stream Time (HoloJP Gen6)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Hours'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/time/hl-ts-gen6.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,

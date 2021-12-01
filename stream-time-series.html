@@ -38,6 +38,8 @@ window.onload = function() {
 	window.gen4 = new Chart(gen4ctx, gen4ts_config);
 	var gen5ctx = document.getElementById('gen5').getContext('2d');
 	window.gen5 = new Chart(gen5ctx, gen5ts_config);
+	var gen6ctx = document.getElementById('gen6').getContext('2d');
+	window.gen6 = new Chart(gen6ctx, gen6ts_config);
 	var enctx = document.getElementById('en').getContext('2d');
 	window.en = new Chart(enctx, ents_config);
 	var en2ctx = document.getElementById('en2').getContext('2d');
@@ -157,6 +159,9 @@ window.onload = function() {
 		</div>
 		<div style="width: 48vw">
 			<canvas id="gen5"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="gen6"></canvas>
 		</div>
 		<div style="width: 48vw">
 			<canvas id="en"></canvas>
