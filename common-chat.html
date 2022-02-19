@@ -103,7 +103,7 @@ function updateChart() {
       };
       var mousemove = function (d) {
         tooltip
-          .html("Percent of " + d.from  + "'s chat users in " + d.to + "'s chat: " + d.value)
+          ("Percent of " + d.from  + "'s chat users in " + d.to + "'s chat: " + d.value)
           .style("left", d3.mouse(this)[0] + 70 + "px")
           .style("top", d3.mouse(this)[1] + 75 + "px");
       };
@@ -171,7 +171,7 @@ window.onload = function() {
 </head>
 <body style="background-color:#221F1E;">
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="index.html">HoloChatStats</a>
+		<a class="navbar-brand" href="/">HoloChatStats</a>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<div class="dropdown">
@@ -180,10 +180,10 @@ window.onload = function() {
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp.html">Non-JP %/Rates (HoloJP)</a>
-						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars.html">Non-JP %/Rates (HoloStars)</a>
-						<a class="dropdown-item" id="jp-stats" href="jp-holoiden.html">JP %/Rates (HoloID/HoloEN)</a>
-						<a class="dropdown-item" id="lang-summary" href="langsum.html">Language Summary Stats</a>
+						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rates (HoloJP)</a>
+						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars">Non-JP %/Rates (HoloStars)</a>
+						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rates (HoloID/HoloEN)</a>
+						<a class="dropdown-item" id="lang-summary" href="langsum">Language Summary Stats</a>
 				</div>
 				</div>
 			</div>
@@ -193,8 +193,8 @@ window.onload = function() {
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<a class="dropdown-item" id="en-live-tl" href="en-livetl.html">English Live Translations</a>
-						<a class="dropdown-item" id="en-live-tl" href="en-tl-stream.html">English Top Live Translated Streams</a>
+						<a class="dropdown-item" id="en-live-tl" href="en-livetl">English Live Translations</a>
+						<a class="dropdown-item" id="en-live-tl" href="en-tl-stream">English Top Live Translated Streams</a>
 				</div>
 				</div>
 			</div>
@@ -204,8 +204,8 @@ window.onload = function() {
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<a class="dropdown-item" id="common-chat" href="common-chat.html">Common User Heatmap</a>
-						<a class="dropdown-item" id="excl-chat" href="excl-chat.html">Exclusive Chat Users</a>
+						<a class="dropdown-item" id="common-chat" href="common-chat">Common User Heatmap</a>
+						<a class="dropdown-item" id="excl-chat" href="excl-chat">Exclusive Chat Users</a>
 				</div>
 				</div>
 			</div>
@@ -215,10 +215,10 @@ window.onload = function() {
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<a class="dropdown-item" id="stream-time" href="stream-time.html">Stream Time Stats</a>
-						<a class="dropdown-item" id="stream-time-series" href="stream-time-series.html">Stream Time Over Time</a>
-						<a class="dropdown-item" id="chat-makeup" href="chat-makeup.html">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-collab" href="en-collab.html">HoloEN Collab Percentages</a>
+						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
+						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
+						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
+						<a class="dropdown-item" id="en-collab" href="en-collab">HoloEN Collab Percentages</a>
 				</div>
 				</div>
 			</div>
@@ -231,8 +231,8 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="siteList">
 						<h6 class="dropdown-header">Machine Generated Clips</h6>
-						<a class="dropdown-item" id="non-jp-holojp" href="https://mipacd.github.io/auto-clip/holo.html">HoloAutoClip</a>
-						<a class="dropdown-item" id="non-jp-holostars" href="https://mipacd.github.io/auto-clip/vt.html">VTAutoClip</a>
+						<a class="dropdown-item" href="http://clip.holochatstats.info">HoloAutoClip</a>
+						<a class="dropdown-item" href="http://clip.holochatstats.info/vt">VTAutoClip</a>
 				</div>
 		</div>
 		<a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/HoloChatStat" target="_blank">
