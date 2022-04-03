@@ -29,6 +29,10 @@ window.onload = function() {
 	window.holoid = new Chart(idctx, id_config);
 	var idrctx = document.getElementById('holoidr').getContext('2d');
 	window.holoidr = new Chart(idrctx, idr_config);
+	var id3ctx = document.getElementById('holoid3').getContext('2d');
+	window.holoid3 = new Chart(id3ctx, id3_config);
+	var id3rctx = document.getElementById('holoid3r').getContext('2d');
+	window.holoid3r = new Chart(id3rctx, id3r_config);
 	var enctx = document.getElementById('holoen').getContext('2d');
 	window.holoen = new Chart(enctx, en_config);
 	var enrctx = document.getElementById('holoenr').getContext('2d');
@@ -100,7 +104,7 @@ window.onload = function() {
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
 						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-collab" href="en-collab">HoloEN Collab Percentages</a>
+						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>
@@ -130,6 +134,12 @@ window.onload = function() {
 		</div>
 		<div style="width: 48vw">
 			<canvas id="holoidr"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="holoid3"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="holoid3r"></canvas>
 		</div>
 		<div style="width: 48vw">
 			<canvas id="holoen"></canvas>

@@ -40,11 +40,21 @@ function updateChart() {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
   var path = "";
-  if ($("#minComments").val() != "1") {
-	path = "csv/common/" + $("#chartType").val() + "_" + $("#minComments").val() + ".csv";
+  if ($("#branch").val() == "all") {
+	  if ($("#minComments").val() != "1") {
+		path = "csv/common/" + $("#chartType").val() + "_" + $("#minComments").val() + ".csv";
+	  }
+	  else {
+		path = "csv/common/" + $("#chartType").val() + ".csv";
+	  }
   }
   else {
-	path = "csv/common/" + $("#chartType").val() + ".csv";
+	  if ($("#minComments").val() != "1") {
+		path = "csv/common/" + $("#chartType").val() + "_" + $("#branch").val() + "_" + $("#minComments").val() + ".csv";
+	  }
+	  else {
+		path = "csv/common/" + $("#chartType").val() + "_" + $("#branch").val() + ".csv";
+	  }
   }
 
   d3.csv(
@@ -151,6 +161,7 @@ function updateChart() {
 window.onload = function() {
 	$("#chartType").on('change', updateChart)
 	$("#minComments").on('change', updateChart)
+	$("#branch").on('change', updateChart)
 	updateChart();
 };
 </script>
@@ -218,7 +229,7 @@ window.onload = function() {
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
 						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-collab" href="en-collab">HoloEN Collab Percentages</a>
+						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>
@@ -244,6 +255,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2022-03">March 2022</option>
 			<option value="hl-2022-02">February 2022</option>
 			<option value="hl-2022-01">January 2022</option>
 			<option value="hl-2021-12">December 2021</option>
@@ -265,6 +277,14 @@ window.onload = function() {
 			<option value="hl-2020-08">August 2020</option>
 			<option value="hl-2020-07">July 2020</option>
 			<option value="hl-2020-06">June 2020</option>
+		</select>
+		<label style="color: #DEDEDE">Branch: </label>
+		<select id="branch">
+			<option value="en">EN</option>
+			<option value="jp">JP</option>
+			<option value="id">ID</option>
+			<option value="hs">Holostars</option>
+			<option value="all">All (2/2022 and earlier)</option>
 		</select>
 		<label style="color: #DEDEDE">Min. Comments per Member: </label>
 		<select id="minComments">

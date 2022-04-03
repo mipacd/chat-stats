@@ -44,8 +44,12 @@ window.onload = function() {
 	window.hs1 = new Chart(hs1ctx, hs1ex_config);
 	var hs2ctx = document.getElementById('hs2').getContext('2d');
 	window.hs2 = new Chart(hs2ctx, hs2ex_config);
+	var hs4ctx = document.getElementById('hs4').getContext('2d');
+	window.hs4 = new Chart(hs4ctx, hs4ex_config);
 	var idctx = document.getElementById('holoid').getContext('2d');
 	window.holoid = new Chart(idctx, idex_config);
+	var id3ctx = document.getElementById('holoid3').getContext('2d');
+	window.holoid3 = new Chart(id3ctx, id3ex_config);
 	var enctx = document.getElementById('holoen').getContext('2d');
 	window.holoen = new Chart(enctx, enex_config);
 	var en2ctx = document.getElementById('holoen2').getContext('2d');
@@ -113,7 +117,7 @@ window.onload = function() {
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
 						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-collab" href="en-collab">HoloEN Collab Percentages</a>
+						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>
@@ -171,7 +175,13 @@ window.onload = function() {
 			<canvas id="hs2"></canvas>
 		</div>
 		<div style="width: 48vw">
+			<canvas id="hs4"></canvas>
+		</div>
+		<div style="width: 48vw">
 			<canvas id="holoid"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="holoid3"></canvas>
 		</div>
 		<div style="width: 48vw">
 			<canvas id="holoen"></canvas>

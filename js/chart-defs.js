@@ -844,7 +844,7 @@ var hs2r_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'Non-JP Rate (HoloStars Gen2)'
+			text: 'Non-JP Rate (HoloStars Gen2+3)'
 		},
 		scales: {
 			xAxes: [{
@@ -882,13 +882,101 @@ var hs2r_config = {
 		}
 	}
 };
+var hs4_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Percentage (HoloStars Gen4)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-hstars4.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var hs4r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Non-JP Rate (HoloStars Gen4)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-nonjp-hstars4-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var id_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'JP Percentage (HoloID)'
+			text: 'JP Percentage (HoloID Gen1+2)'
 		},
 		scales: {
 			xAxes: [{
@@ -932,7 +1020,7 @@ var idr_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'JP Rate (HoloID)'
+			text: 'JP Rate (HoloID Gen1+2)'
 		},
 		scales: {
 			xAxes: [{
@@ -959,6 +1047,94 @@ var idr_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-id-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var id3_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Percentage (HoloID Gen3)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-id3.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var id3r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate (HoloID Gen3)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'rate',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Avg. Msg per Min'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-id3-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -1135,534 +1311,6 @@ var en2r_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-en2-rate.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen0ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen0)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen0.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen1ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen2ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen2)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen2.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gmrru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gamers)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gamers.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen3ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen3)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen3.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen4ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen4)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen4.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var gen5ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloJP Gen5)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-gen5.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs1ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloStars Gen1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-hstars1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs2ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloStars Gen2+3)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-hstars2.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var idru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloID)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-id.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var enru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloEN1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-en.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var en2ru_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'RU Percentage (HoloEN2)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-ru-en2.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -2466,13 +2114,57 @@ var hs2ex_config = {
 		}
 	}
 };
+var hs4ex_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Exclusive Chat Users (Holostars Gen4)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/excl/hl-excl-hs4.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var idex_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Exclusive Chat Users (HoloID)'
+			text: 'Exclusive Chat Users (HoloID Gen1+2)'
 		},
 		scales: {
 			xAxes: [{
@@ -2499,6 +2191,50 @@ var idex_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/excl/hl-excl-id.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var id3ex_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Exclusive Chat Users (HoloID Gen3)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/excl/hl-excl-id3.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3044,7 +2780,7 @@ var idts_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Stream Time (HoloID)'
+			text: 'Channel Stream Time (HoloID Gen1+2)'
 		},
 		scales: {
 			xAxes: [{
@@ -3071,6 +2807,50 @@ var idts_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/time/hl-ts-id.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var id3ts_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Channel Stream Time (HoloID Gen3)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Hours'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/time/hl-ts-id3.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3132,7 +2912,7 @@ var hs2ts_config = {
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Stream Time (Holostars Gen2)'
+			text: 'Channel Stream Time (Holostars Gen2+3)'
 		},
 		scales: {
 			xAxes: [{
@@ -3170,13 +2950,13 @@ var hs2ts_config = {
 		}
 	}
 };
-var en1collab_config = {
+var hs4ts_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Collab Percent (HoloEN1)'
+			text: 'Channel Stream Time (Holostars Gen4)'
 		},
 		scales: {
 			xAxes: [{
@@ -3192,7 +2972,7 @@ var en1collab_config = {
 				},
 				scaleLabel: {
 					display: true,
-					labelString: '%'
+					labelString: 'Hours'
 				},
 				ticks: {
 					suggestedMin: 0
@@ -3202,7 +2982,7 @@ var en1collab_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/misc/collab-en1.csv',
+				url: 'csv/time/hl-ts-hs4.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3214,13 +2994,13 @@ var en1collab_config = {
 		}
 	}
 };
-var en2collab_config = {
+var en1game_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Collab Percent (HoloEN2)'
+			text: 'Total Games Completed (HoloEN1)'
 		},
 		scales: {
 			xAxes: [{
@@ -3246,7 +3026,51 @@ var en2collab_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/misc/collab-en2.csv',
+				url: 'csv/misc/game-en1.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var en2game_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Total Games Completed (HoloEN2)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: '%'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/misc/game-en2.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,

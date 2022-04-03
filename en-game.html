@@ -24,10 +24,10 @@
 	</script>
 	<script>
 window.onload = function() {
-	var en1ctx = document.getElementById('en1collab').getContext('2d');
-	window.en1collab = new Chart(en1ctx, en1collab_config);
-	var en2ctx = document.getElementById('en2collab').getContext('2d');
-	window.en2collab = new Chart(en2ctx, en2collab_config);
+	var en1ctx = document.getElementById('en1game').getContext('2d');
+	window.en1game = new Chart(en1ctx, en1game_config);
+	var en2ctx = document.getElementById('en2game').getContext('2d');
+	window.en2game = new Chart(en2ctx, en2game_config);
 };
 </script>
 <style>
@@ -91,7 +91,7 @@ window.onload = function() {
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
 						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-collab" href="en-collab">HoloEN Collab Percentages</a>
+						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>
@@ -115,13 +115,13 @@ window.onload = function() {
 		</ul>
 		</div>
 	</nav>
-	<div style="color: #DEDEDE">Percentage of collab streams on channel. Collab is defined as someone else on voice chat.</div>
+	<div style="color: #DEDEDE">Total number of games completed in 2022.</div>
 	<div class="graphs">
 		<div style="width: 48vw">
-			<canvas id="en1collab"></canvas>
+			<canvas id="en1game"></canvas>
 		</div>
 		<div style="width: 48vw">
-			<canvas id="en2collab"></canvas>
+			<canvas id="en2game"></canvas>
 		</div>
 	</div>
 </body>
