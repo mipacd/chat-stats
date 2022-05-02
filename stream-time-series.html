@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Stream Time Over Time</title>
+	<title>HoloChatStats: Stream Time Monthly Trend</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -46,7 +46,7 @@ window.onload = function() {
 	window.en2 = new Chart(en2ctx, en2ts_config);
 	var idctx = document.getElementById('id').getContext('2d');
 	window.id = new Chart(idctx, idts_config);
-	var idctx = document.getElementById('id3').getContext('2d');
+	var id3ctx = document.getElementById('id3').getContext('2d');
 	window.id3 = new Chart(id3ctx, id3ts_config);
 	var hs1ctx = document.getElementById('hs1').getContext('2d');
 	window.hs1 = new Chart(hs1ctx, hs1ts_config);
@@ -115,9 +115,8 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
-						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
+						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Monthly Trend</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>

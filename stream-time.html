@@ -306,9 +306,8 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
-						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Over Time</a>
+						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Monthly Trend</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-						<a class="dropdown-item" id="en-game" href="en-game">HoloEN 2022 Games Completed</a>
 				</div>
 				</div>
 			</div>
@@ -334,6 +333,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2022-04">April 2022</option>
 			<option value="hl-2022-03">March 2022</option>
 			<option value="hl-2022-02">February 2022</option>
 			<option value="hl-2022-01">January 2022</option>
@@ -357,7 +357,7 @@ window.onload = function() {
 			<option value="hl-2020-07">July 2020</option>
 			<option value="hl-2020-06">June 2020</option>
 		</select>
-		<div style="color: #DEDEDE">Public, archived streams from own channel on YouTube only. <a href="stream-time-series">Click here</a> for stream time line graphs.</div>
+		<div style="color: #DEDEDE">Public, archived streams from own channel on YouTube only. <a href="stream-time-series">Click here</a> for stream time monthly trends.</div>
 	<div class="graphs">
 		<div id="tldiv">
 			<canvas id="tlchart"></canvas>
