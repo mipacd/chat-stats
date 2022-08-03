@@ -1322,6 +1322,94 @@ var en2r_config = {
 		}
 	}
 };
+var hsen1_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Percentage (Holostars EN1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-hsen1.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var hsen1r_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'JP Rate (Holostars EN1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/hl-jp-hsen1-rate.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var njpm_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -2158,6 +2246,50 @@ var hs4ex_config = {
 		}
 	}
 };
+var hsen1ex_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Exclusive Chat Users (Holostars EN1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Percent'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/excl/hl-excl-hsen1.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
 var idex_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -2983,6 +3115,50 @@ var hs4ts_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/time/hl-ts-hs4.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+};
+var hsen1ts_config = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Channel Stream Time (Holostars EN1)'
+		},
+		scales: {
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Hours'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/time/hl-ts-hsen1.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,

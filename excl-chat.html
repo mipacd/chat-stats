@@ -54,6 +54,8 @@ window.onload = function() {
 	window.holoen = new Chart(enctx, enex_config);
 	var en2ctx = document.getElementById('holoen2').getContext('2d');
 	window.holoen2 = new Chart(en2ctx, en2ex_config);
+	var hsen1ctx = document.getElementById('hsen1').getContext('2d');
+	window.hsen1 = new Chart(hsen1ctx, hsen1ex_config);
 };
 </script>
 <style>
@@ -187,6 +189,9 @@ window.onload = function() {
 		</div>
 		<div style="width: 48vw">
 			<canvas id="holoen2"></canvas>
+		</div>
+		<div style="width: 48vw">
+			<canvas id="hsen1"></canvas>
 		</div>
 	</div>
 </body>
