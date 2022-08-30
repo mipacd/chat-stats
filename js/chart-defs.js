@@ -3170,13 +3170,14 @@ var hsen1ts_config = {
 		}
 	}
 };
-var en1game_config = {
+
+var ame22total_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Total Games Completed (HoloEN1)'
+			text: 'Total Cumulative Games Completed'
 		},
 		scales: {
 			xAxes: [{
@@ -3186,23 +3187,24 @@ var en1game_config = {
 				}
 			}],
 			yAxes: [{
-				id: 'percent',
+				id: 'count',
 				gridLines: {
 					drawOnChartArea: false
 				},
 				scaleLabel: {
 					display: true,
-					labelString: '%'
+					labelString: 'Count'
 				},
 				ticks: {
-					suggestedMin: 0
+					suggestedMin: 0,
+					suggestedMax: 22
 				}
 			}]
 		},
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/misc/game-en1.csv',
+				url: 'csv/misc/ame22-total.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3210,17 +3212,21 @@ var en1game_config = {
 			},
 			colorschemes: {
 				scheme: 'tableau.Classic10'
+			},
+			horizontalLine: {
+				"y": 22,
+				"style": "#ff0000",
 			}
 		}
 	}
 };
-var en2game_config = {
+var ame22days_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Total Games Completed (HoloEN2)'
+			text: 'Days per Game to Completion'
 		},
 		scales: {
 			xAxes: [{
@@ -3230,13 +3236,13 @@ var en2game_config = {
 				}
 			}],
 			yAxes: [{
-				id: 'percent',
+				id: 'Days',
 				gridLines: {
 					drawOnChartArea: false
 				},
 				scaleLabel: {
 					display: true,
-					labelString: '%'
+					labelString: 'Days'
 				},
 				ticks: {
 					suggestedMin: 0
@@ -3246,7 +3252,7 @@ var en2game_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/misc/game-en2.csv',
+				url: 'csv/misc/ame22-days.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
