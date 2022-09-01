@@ -1,0 +1,188 @@
+<head>
+	<head>
+	<title>HoloChatStats: Member Counts</title>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+	<script src="js/chart-defs.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XPX4HFYKX"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-9XPX4HFYKX');
+	</script>
+	<script>
+function updateChart() {
+	$("canvas#memchart").remove();
+	$("#memdiv").append('<canvas id="memchart"></canvas>');
+	Chart.defaults.global.defaultFontColor = "#DADADA";
+	var config1 = {
+	type: 'horizontalBar',
+	plugins: [ChartDataSource],
+	options: {
+		title: {
+			display: true,
+			text: 'Member Counts: ' + $("#chartType option:selected").text()
+		},
+		legend: {
+			display: false
+		},
+		scales: {
+			xAxes: [{
+				stacked: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Number of Members'
+				},
+				ticks: {
+					autoSkip: false
+				}
+			}],
+			yAxes: [{
+				stacked: true,
+				id: 'msg',
+				gridLines: {
+					drawOnChartArea: true
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Member'
+				},
+				ticks: {
+					suggestedMin: 0,
+					autoSkip: false
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/member/' + $("#chartType").val() + '.csv',
+				delimiter: ',',
+				rowMapping: 'index',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+	};
+	var ctx = document.getElementById('memchart').getContext('2d');
+	window.memchart = new Chart(ctx, config1);
+}
+window.onload = function() {
+	$("#chartType").on('change', updateChart)
+	updateChart();
+};
+</script>
+<style>
+	body {
+		padding-top: 65px;
+	}
+	.graphs {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: 93vw 93vw;
+		grid-template-rows: auto;
+	}
+</style>
+</head>
+<body style="background-color:#221F1E;">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="/">HoloChatStats</a>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Language
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
+						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rate (HoloJP)</a>
+						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars">Non-JP %/Rate (HoloStars)</a>
+						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rate (HoloID/HoloEN)</a>
+						<a class="dropdown-item" id="lang-summary" href="langsum">Language Summary Stats</a>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Translations
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
+						<a class="dropdown-item" id="en-live-tl" href="en-livetl">English Live Translations</a>
+						<a class="dropdown-item" id="en-live-tl" href="en-tl-stream">English Top Live Translated Streams</a>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Users
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
+						<a class="dropdown-item" id="common-chat" href="common-chat">Common User Heatmap</a>
+						<a class="dropdown-item" id="excl-chat" href="excl-chat">Exclusive Chat Users</a>
+						<a class="dropdown-item" id="members" href="members">Member Counts</a>
+				</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Other
+				</button>
+				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="categoryList">
+						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
+						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Monthly Trend</a>
+						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
+						<a class="dropdown-item" id="ame-22" href="ame-22">Amelia Game Goal Tracker</a>
+				</div>
+				</div>
+			</div>
+		</ul>
+				<ul class="navbar-nav ml-auto">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="sitesButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Other Sites
+				</button>
+				<div class="dropdown-menu scrollable-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
+				<div id="siteList">
+						<h6 class="dropdown-header">Machine Generated Clips</h6>
+						<a class="dropdown-item" href="https://clip.holochatstats.info">HoloAutoClip</a>
+						<a class="dropdown-item" href="https://clip.holochatstats.info/vt">VTAutoClip</a>
+				</div>
+		</div>
+		<a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/HoloChatStat" target="_blank">
+				<i class="fa fa-twitter">
+				</i>
+		</a>
+		</ul>
+		</div>
+		
+	</nav>
+		<label style="color: #DEDEDE">Month: </label>
+		<select id="chartType">
+			<option value="hl-2022-08">August 2022</option>
+		</select>
+		<div style="color: #DEDEDE">Count of members appeared in chat by badge type (highest observed rank for each member). Hover over bars for values.</div>
+	<div class="graphs">
+		<div id="memdiv">
+			<canvas id="memchart"></canvas>
+		</div>
+	</div>
+</body>
