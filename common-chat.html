@@ -192,7 +192,6 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
 						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rates (HoloJP)</a>
-						<a class="dropdown-item" id="non-jp-holostars" href="nonjp-holostars">Non-JP %/Rates (HoloStars)</a>
 						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rates (HoloID/HoloEN)</a>
 						<a class="dropdown-item" id="lang-summary" href="langsum">Language Summary Stats</a>
 				</div>
@@ -243,7 +242,6 @@ window.onload = function() {
 				<div id="siteList">
 						<h6 class="dropdown-header">Machine Generated Clips</h6>
 						<a class="dropdown-item" href="https://clip.holochatstats.info">HoloAutoClip</a>
-						<a class="dropdown-item" href="https://clip.holochatstats.info/vt">VTAutoClip</a>
 				</div>
 		</div>
 		<a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/HoloChatStat" target="_blank">
@@ -255,6 +253,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2023-01">January 2023</option>
 			<option value="hl-2022-12">December 2022</option>
 			<option value="hl-2022-11">November 2022</option>
 			<option value="hl-2022-10">October 2022</option>
@@ -292,7 +291,6 @@ window.onload = function() {
 			<option value="en">EN</option>
 			<option value="jp">JP</option>
 			<option value="id">ID</option>
-			<option value="hs">Holostars</option>
 			<option value="all">All (2/2022 and earlier)</option>
 		</select>
 		<label style="color: #DEDEDE">Min. Comments per Member: </label>
