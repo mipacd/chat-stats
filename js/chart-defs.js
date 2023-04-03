@@ -706,270 +706,6 @@ var gen6r_config = {
 		}
 	}
 };
-var hs1_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Percentage (HoloStars Gen1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs1r_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Rate (HoloStars Gen1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'rate',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Avg. Msg per Min'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars1-rate.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs2_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Percentage (HoloStars Gen2+3)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars2.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs2r_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Rate (HoloStars Gen2+3)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'rate',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Avg. Msg per Min'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars2-rate.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs4_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Percentage (HoloStars Gen4)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars4.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs4r_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Non-JP Rate (HoloStars Gen4)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'rate',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Avg. Msg per Min'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-nonjp-hstars4-rate.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
 var id_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -1311,94 +1047,6 @@ var en2r_config = {
 			datasource: {
 				type: 'csv',
 				url: 'csv/hl-jp-en2-rate.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hsen1_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'JP Percentage (Holostars EN1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-jp-hsen1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hsen1r_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'JP Rate (Holostars EN1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/hl-jp-hsen1-rate.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -2114,182 +1762,6 @@ var gen6ex_config = {
 		}
 	}
 };
-var hs1ex_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Exclusive Chat Users (HoloStars Gen1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/excl/hl-excl-hs1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs2ex_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Exclusive Chat Users (Holostars Gen2+3)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/excl/hl-excl-hs2.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hs4ex_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Exclusive Chat Users (Holostars Gen4)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/excl/hl-excl-hs4.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hsen1ex_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Exclusive Chat Users (Holostars EN1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Percent'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/excl/hl-excl-hsen1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
 var idex_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
@@ -2994,13 +2466,13 @@ var id3ts_config = {
 		}
 	}
 };
-var hs1ts_config = {
+var jpsumts_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Stream Time (Holostars Gen1)'
+			text: 'Channel Stream Time (JP Branch Total)'
 		},
 		scales: {
 			xAxes: [{
@@ -3026,7 +2498,7 @@ var hs1ts_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/time/hl-ts-hs1.csv',
+				url: 'csv/time/hl-ts-jpsum.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3038,13 +2510,13 @@ var hs1ts_config = {
 		}
 	}
 };
-var hs2ts_config = {
+var ensumts_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Stream Time (Holostars Gen2+3)'
+			text: 'Channel Stream Time (EN Branch Total)'
 		},
 		scales: {
 			xAxes: [{
@@ -3070,7 +2542,7 @@ var hs2ts_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/time/hl-ts-hs2.csv',
+				url: 'csv/time/hl-ts-ensum.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
@@ -3082,13 +2554,13 @@ var hs2ts_config = {
 		}
 	}
 };
-var hs4ts_config = {
+var idsumts_config = {
 	type: 'line',
 	plugins: [ChartDataSource],
 	options: {
 		title: {
 			display: true,
-			text: 'Channel Stream Time (Holostars Gen4)'
+			text: 'Channel Stream Time (ID Branch Total)'
 		},
 		scales: {
 			xAxes: [{
@@ -3114,145 +2586,7 @@ var hs4ts_config = {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/time/hl-ts-hs4.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-var hsen1ts_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Channel Stream Time (Holostars EN1)'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'percent',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Hours'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/time/hl-ts-hsen1.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			}
-		}
-	}
-};
-
-var ame22total_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Total Cumulative Games Completed'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'count',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Count'
-				},
-				ticks: {
-					suggestedMin: 0,
-					suggestedMax: 22
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/misc/ame22-total.csv',
-				delimiter: ',',
-				rowMapping: 'dataset',
-				datasetLabels: true,
-				indexLabels: true
-			},
-			colorschemes: {
-				scheme: 'tableau.Classic10'
-			},
-			horizontalLine: {
-				"y": 22,
-				"style": "#ff0000",
-			}
-		}
-	}
-};
-var ame22days_config = {
-	type: 'line',
-	plugins: [ChartDataSource],
-	options: {
-		title: {
-			display: true,
-			text: 'Days per Game to Completion'
-		},
-		scales: {
-			xAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: 'Month'
-				}
-			}],
-			yAxes: [{
-				id: 'Days',
-				gridLines: {
-					drawOnChartArea: false
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Days'
-				},
-				ticks: {
-					suggestedMin: 0
-				}
-			}]
-		},
-		plugins: {
-			datasource: {
-				type: 'csv',
-				url: 'csv/misc/ame22-days.csv',
+				url: 'csv/time/hl-ts-idsum.csv',
 				delimiter: ',',
 				rowMapping: 'dataset',
 				datasetLabels: true,
