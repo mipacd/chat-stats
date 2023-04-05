@@ -7,7 +7,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap-social.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
@@ -23,38 +23,65 @@
 	  gtag('config', 'G-9XPX4HFYKX');
 	</script>
 	<script>
+function updateChart() {
+	$("canvas#timechart").remove();
+	$("#timediv").append('<canvas id="timechart"></canvas>');
+	Chart.defaults.global.defaultFontColor = "#DADADA";
+	var config1 = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		responsive: true,
+		title: {
+			display: true,
+			text: 'Channel Stream Time: ' + $("#chartType option:selected").text()
+		},
+		scales: {
+			xAxes: [{
+				stacked: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				},
+				ticks: {
+					autoSkip: false
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: 'Hours'
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/time/' + $("#chartType").val() + '.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+	};
+	var ctx = document.getElementById('timechart').getContext('2d');
+	window.timechart = new Chart(ctx, config1);
+}
 window.onload = function() {
-	var gen0ctx = document.getElementById('gen0').getContext('2d');
-	window.gen0 = new Chart(gen0ctx, gen0ts_config);
-	var gen1ctx = document.getElementById('gen1').getContext('2d');
-	window.gen1 = new Chart(gen1ctx, gen1ts_config);
-	var gen2ctx = document.getElementById('gen2').getContext('2d');
-	window.gen2 = new Chart(gen2ctx, gen2ts_config);
-	var gmrctx = document.getElementById('gmr').getContext('2d');
-	window.gmr = new Chart(gmrctx, gmrts_config);
-	var gen3ctx = document.getElementById('gen3').getContext('2d');
-	window.gen3 = new Chart(gen3ctx, gen3ts_config);
-	var gen4ctx = document.getElementById('gen4').getContext('2d');
-	window.gen4 = new Chart(gen4ctx, gen4ts_config);
-	var gen5ctx = document.getElementById('gen5').getContext('2d');
-	window.gen5 = new Chart(gen5ctx, gen5ts_config);
-	var gen6ctx = document.getElementById('gen6').getContext('2d');
-	window.gen6 = new Chart(gen6ctx, gen6ts_config);
-	var enctx = document.getElementById('en').getContext('2d');
-	window.en = new Chart(enctx, ents_config);
-	var en2ctx = document.getElementById('en2').getContext('2d');
-	window.en2 = new Chart(en2ctx, en2ts_config);
-	var idctx = document.getElementById('id').getContext('2d');
-	window.id = new Chart(idctx, idts_config);
-	var id3ctx = document.getElementById('id3').getContext('2d');
-	window.id3 = new Chart(id3ctx, id3ts_config);
-	var jpsumctx = document.getElementById('jpsum').getContext('2d');
-	window.jpsum = new Chart(jpsumctx, jpsumts_config);
-	var ensumctx = document.getElementById('ensum').getContext('2d');
-	window.ensum = new Chart(ensumctx, ensumts_config);
-	var idsumctx = document.getElementById('idsum').getContext('2d');
-	window.idsum = new Chart(idsumctx, idsumts_config);
-
+	$("#chartType").on('change', updateChart)
+	updateChart();
 };
 </script>
 <style>
@@ -64,7 +91,7 @@ window.onload = function() {
 	.graphs {
 		display: grid;
 		grid-auto-flow: row;
-		grid-template-columns: 50vw 50vw;
+		grid-template-columns: 93vw 95vw;
 		grid-template-rows: auto;
 	}
 </style>
@@ -80,8 +107,8 @@ window.onload = function() {
 				</button>
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
-						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rates (HoloJP)</a>
-						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rates (HoloID/HoloEN)</a>
+						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rate (HoloJP)</a>
+						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rate (HoloID/HoloEN)</a>
 						<a class="dropdown-item" id="lang-summary" href="langsum">Language Summary Stats</a>
 				</div>
 				</div>
@@ -116,7 +143,7 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
-						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Monthly Trend</a>
+						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Monthly Trend</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
 				</div>
 				</div>
@@ -130,7 +157,7 @@ window.onload = function() {
 				<div class="dropdown-menu scrollable-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
 				<div id="siteList">
 						<h6 class="dropdown-header">Machine Generated Clips</h6>
-						<a class="dropdown-item" id="non-jp-holojp" href="https://clip.holochatstats.info">HoloAutoClip</a>
+						<a class="dropdown-item" href="https://clip.holochatstats.info">HoloAutoClip</a>
 				</div>
 		</div>
 		<a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/HoloChatStat" target="_blank">
@@ -139,53 +166,30 @@ window.onload = function() {
 		</a>
 		</ul>
 		</div>
+		
 	</nav>
-	<div style="color: #DEDEDE">Public, archived streams on Youtube only.</div>
+		<label style="color: #DEDEDE">Chart Select: </label>
+		<select id="chartType">
+			<option value="hl-ts-gen0">HoloJP Gen0</option>
+			<option value="hl-ts-gen1">HoloJP Gen1</option>
+			<option value="hl-ts-gen2">HoloJP Gen2</option>
+			<option value="hl-ts-gamers">HoloJP Gamers</option>
+			<option value="hl-ts-gen3">HoloJP Gen3</option>
+			<option value="hl-ts-gen4">HoloJP Gen4</option>
+			<option value="hl-ts-gen5">HoloJP Gen5</option>
+			<option value="hl-ts-gen6">HoloJP Gen6</option>
+			<option value="hl-ts-en">HoloEN Myth</option>
+			<option value="hl-ts-en2">HoloEN CouncilRyS</option>
+			<option value="hl-ts-id">HoloID Gen1+2</option>
+			<option value="hl-ts-id3">HoloID Gen3</option>
+			<option value="hl-ts-jpsum">HoloJP Total</option>
+			<option value="hl-ts-ensum">HoloEN Total</option>
+			<option value="hl-ts-idsum">HoloID Total</option>
+		</select>
+		<div style="color: #DEDEDE">Public, archived streams on Youtube only.</div>
 	<div class="graphs">
-		<div style="width: 48vw">
-			<canvas id="gen0"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen1"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen2"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gmr"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen3"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen4"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen5"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen6"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="en"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="en2"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="id"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="id3"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="jpsum"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="ensum"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="idsum"></canvas>
+		<div id="timediv">
+			<canvas id="timechart"></canvas>
 		</div>
 	</div>
 </body>

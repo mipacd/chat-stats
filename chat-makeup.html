@@ -31,6 +31,7 @@ function updateChart() {
 	type: 'horizontalBar',
 	plugins: [ChartDataSource],
 	options: {
+		responsive: true,
 		title: {
 			display: true,
 			text: 'Chat Makeup: ' + $("#chartType option:selected").text()

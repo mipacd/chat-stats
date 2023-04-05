@@ -23,39 +23,71 @@
 	  gtag('config', 'G-9XPX4HFYKX');
 	</script>
 	<script>
+function updateChart() {
+	$("canvas#langchart").remove();
+	$("#langdiv").append('<canvas id="langchart"></canvas>');
+	Chart.defaults.global.defaultFontColor = "#DADADA";
+	if ($("#chartType option:selected").text().endsWith('%')) {
+		label = "%";
+	}
+	else {
+		label = "Avg. Msg per Min";
+	}
+	var config1 = {
+	type: 'line',
+	plugins: [ChartDataSource],
+	options: {
+		responsive: true,
+		title: {
+			display: true,
+			text: $("#chartType option:selected").text()
+		},
+		scales: {
+			xAxes: [{
+				stacked: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				},
+				ticks: {
+					autoSkip: false
+				}
+			}],
+			yAxes: [{
+				id: 'percent',
+				gridLines: {
+					drawOnChartArea: false
+				},
+				scaleLabel: {
+					display: true,
+					labelString: label
+				},
+				ticks: {
+					suggestedMin: 0
+				}
+			}]
+		},
+		plugins: {
+			datasource: {
+				type: 'csv',
+				url: 'csv/' + $("#chartType").val() + '.csv',
+				delimiter: ',',
+				rowMapping: 'dataset',
+				datasetLabels: true,
+				indexLabels: true
+			},
+			colorschemes: {
+				scheme: 'tableau.Classic10'
+			}
+		}
+	}
+	};
+	var ctx = document.getElementById('langchart').getContext('2d');
+	window.langchart = new Chart(ctx, config1);
+}
 window.onload = function() {
-	var gen0ctx = document.getElementById('gen0').getContext('2d');
-	window.gen0 = new Chart(gen0ctx, gen0_config);
-	var gen0rctx = document.getElementById('gen0r').getContext('2d');
-	window.gen0r = new Chart(gen0rctx, gen0r_config);
-	var gen1ctx = document.getElementById('gen1').getContext('2d');
-	window.gen1 = new Chart(gen1ctx, gen1_config);
-	var gen1rctx = document.getElementById('gen1r').getContext('2d');
-	window.gen1r = new Chart(gen1rctx, gen1r_config);
-	var gen2ctx = document.getElementById('gen2').getContext('2d');
-	window.gen2 = new Chart(gen2ctx, gen2_config);
-	var gen2rctx = document.getElementById('gen2r').getContext('2d');
-	window.gen2r = new Chart(gen2rctx, gen2r_config);
-	var gmrctx = document.getElementById('gmr').getContext('2d');
-	window.gmr = new Chart(gmrctx, gmr_config);
-	var gmrrctx = document.getElementById('gmrr').getContext('2d');
-	window.gmrr = new Chart(gmrrctx, gmrr_config);
-	var gen3ctx = document.getElementById('gen3').getContext('2d');
-	window.gen3 = new Chart(gen3ctx, gen3_config);
-	var gen3rctx = document.getElementById('gen3r').getContext('2d');
-	window.gen3r = new Chart(gen3rctx, gen3r_config);
-	var gen4ctx = document.getElementById('gen4').getContext('2d');
-	window.gen4 = new Chart(gen4ctx, gen4_config);
-	var gen4rctx = document.getElementById('gen4r').getContext('2d');
-	window.gen4r = new Chart(gen4rctx, gen4r_config);
-	var gen5ctx = document.getElementById('gen5').getContext('2d');
-	window.gen5 = new Chart(gen5ctx, gen5_config);
-	var gen5rctx = document.getElementById('gen5r').getContext('2d');
-	window.gen5r = new Chart(gen5rctx, gen5r_config);
-	var gen6ctx = document.getElementById('gen6').getContext('2d');
-	window.gen6 = new Chart(gen6ctx, gen6_config);
-	var gen6rctx = document.getElementById('gen6r').getContext('2d');
-	window.gen6r = new Chart(gen6rctx, gen6r_config);
+	$("#chartType").on('change', updateChart)
+	updateChart();
 };
 </script>
 <style>
@@ -65,7 +97,7 @@ window.onload = function() {
 	.graphs {
 		display: grid;
 		grid-auto-flow: row;
-		grid-template-columns: 50vw 50vw;
+		grid-template-columns: 93vw 95vw;
 		grid-template-rows: auto;
 	}
 </style>
@@ -141,54 +173,30 @@ window.onload = function() {
 		</ul>
 		</div>
 	</nav>
+	<label style="color: #DEDEDE">Chart Select: </label>
+	<select id="chartType">
+			<option value="hl-nonjp-gen0">Gen0 NonJP%</option>
+			<option value="hl-nonjp-gen0-rate">Gen0 NonJP Rate</option>
+			<option value="hl-nonjp-gen1">Gen1 NonJP%</option>
+			<option value="hl-nonjp-gen1-rate">Gen1 NonJP Rate</option>
+			<option value="hl-nonjp-gen2">Gen2 NonJP%</option>
+			<option value="hl-nonjp-gen2-rate">Gen2 NonJP Rate</option>
+			<option value="hl-nonjp-gamers">Gamers NonJP%</option>
+			<option value="hl-nonjp-gamers-rate">Gamers NonJP Rate</option>
+			<option value="hl-nonjp-gen3">Gen3 NonJP%</option>
+			<option value="hl-nonjp-gen3-rate">Gen3 NonJP Rate</option>
+			<option value="hl-nonjp-gen3">Gen3 NonJP%</option>
+			<option value="hl-nonjp-gen3-rate">Gen3 NonJP Rate</option>
+			<option value="hl-nonjp-gen4">Gen4 NonJP%</option>
+			<option value="hl-nonjp-gen4-rate">Gen4 NonJP Rate</option>
+			<option value="hl-nonjp-gen5">Gen5 NonJP%</option>
+			<option value="hl-nonjp-gen5-rate">Gen5 NonJP Rate</option>
+			<option value="hl-nonjp-gen6">Gen6 NonJP%</option>
+			<option value="hl-nonjp-gen6-rate">Gen6 NonJP Rate</option>
+		</select>
 	<div class="graphs">
-		<div style="width: 48vw">
-			<canvas id="gen0"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen0r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen1"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen1r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen2"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen2r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gmr"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gmrr"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen3"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen3r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen4"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen4r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen5"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen5r"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen6"></canvas>
-		</div>
-		<div style="width: 48vw">
-			<canvas id="gen6r"></canvas>
+		<div id="langdiv">
+			<canvas id="langchart"></canvas>
 		</div>
 	</div>
 </body>
