@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Monthly Appearance Percentages</title>
+	<title>HoloChatStats: Monthly Coverage Percentages</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -34,7 +34,7 @@ function updateChart() {
 		responsive: true,
 		title: {
 			display: true,
-			text: 'Monthly Appearance Percentages: ' + $("#chartType option:selected").text()
+			text: 'Monthly Coverage Percentages: ' + $("#chartType option:selected").text()
 		},
 		scales: {
 			xAxes: [{
@@ -144,7 +144,7 @@ window.onload = function() {
 				<div id="categoryList">
 						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
 						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Monthly Trend</a>
-						<a class="dropdown-item" id="coverage" href="coverage">Monthly Appearance Percentage</a>
+						<a class="dropdown-item" id="coverage" href="coverage">Monthly Coverage Percentages</a>
 						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
 				</div>
 				</div>
@@ -181,11 +181,12 @@ window.onload = function() {
 			<option value="hl-cover-gen6">HoloJP Gen6</option>
 			<option value="hl-cover-en">HoloEN Myth</option>
 			<option value="hl-cover-en2">HoloEN CouncilRyS</option>
+			<option value="hl-cover-en3">HoloEN Advent</option>
 			<option value="hl-cover-id">HoloID Gen1+2</option>
 			<option value="hl-cover-id3">HoloID Gen3</option>
 			<option value="hl-cover-branch">Branch Medians</option>
 		</select>
-		<div style="color: #DEDEDE">Percent of days in a month where a member has appeared. Includes unarchived streams, member streams, collabs, and premieres  as reported by the Holodex API. YouTube only. Days are defined by JST timezone for JP members, PST/PDT timezone for EN members, and WIB timezone for ID members.</div>
+		<div style="color: #DEDEDE">Percentage of days in a month where a member has appeared in content on YouTube. Includes unarchived streams, member streams, collabs, and premieres as reported by the Holodex API. Days are defined by JST timezone for JP members, PST/PDT timezone for EN members, and WIB timezone for ID members.</div>
 	<div class="graphs">
 		<div id="coveragediv">
 			<canvas id="coveragechart"></canvas>
