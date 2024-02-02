@@ -66,6 +66,27 @@ function updateChart() {
 				}
 			}]
 		},
+		tooltips: {
+      mode: 'index',
+      intersect: false,
+      callbacks: {
+        label: function(tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || '';
+          if (label) {
+            label += ': ';
+          }
+          label += tooltipItem.xLabel;
+          return label;
+        },
+        footer: function(tooltipItems, data) {
+          var sum = 0;
+          tooltipItems.forEach(function(tooltipItem) {
+            sum += parseFloat(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
+          });
+          return 'Total: ' + sum;
+        }
+      }
+    },
 		plugins: {
 			datasource: {
 				type: 'csv',
@@ -177,6 +198,7 @@ window.onload = function() {
 	</nav>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2024-01">January 2024</option>
 			<option value="hl-2023-12">December 2023</option>
 			<option value="hl-2023-11">November 2023</option>
 			<option value="hl-2023-10">October 2023</option>

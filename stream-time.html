@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Stream Time Stats</title>
+	<title>HoloChatStats: Streaming Hour Stats</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -243,6 +243,7 @@ function updateChart() {
 	window.tlchart4 = new Chart(ctx4, config4);
 }
 window.onload = function() {
+	$("#menu-container").load("menu.html");
 	$("#chartType").on('change', updateChart)
 	updateChart();
 };
@@ -260,80 +261,10 @@ window.onload = function() {
 </style>
 </head>
 <body style="background-color:#221F1E;">
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="/">HoloChatStats</a>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-		<ul class="navbar-nav mr-auto">
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Language
-				</button>
-				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
-				<div id="categoryList">
-						<a class="dropdown-item" id="non-jp-holojp" href="nonjp-holojp">Non-JP %/Rate (HoloJP)</a>
-						<a class="dropdown-item" id="jp-stats" href="jp-holoiden">JP %/Rate (HoloID/HoloEN)</a>
-						<a class="dropdown-item" id="lang-summary" href="langsum">Language Summary Stats</a>
-				</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Translations
-				</button>
-				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
-				<div id="categoryList">
-						<a class="dropdown-item" id="en-live-tl" href="en-livetl">English Live Translations</a>
-						<a class="dropdown-item" id="en-live-tl" href="en-tl-stream">English Top Live Translated Streams</a>
-				</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Users
-				</button>
-				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
-				<div id="categoryList">
-						<a class="dropdown-item" id="common-chat" href="common-chat">Common User Heatmap</a>
-						<a class="dropdown-item" id="excl-chat" href="excl-chat">Exclusive Chat Users</a>
-						<a class="dropdown-item" id="members" href="members">Member Counts</a>
-				</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Other
-				</button>
-				<div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
-				<div id="categoryList">
-						<a class="dropdown-item" id="stream-time" href="stream-time">Stream Time Stats</a>
-						<a class="dropdown-item" id="stream-time-series" href="stream-time-series">Stream Time Monthly Trend</a>
-						<a class="dropdown-item" id="coverage" href="coverage">Monthly Coverage Percentages</a>
-						<a class="dropdown-item" id="chat-makeup" href="chat-makeup">Avg. Chat Makeup</a>
-				</div>
-				</div>
-			</div>
-		</ul>
-				<ul class="navbar-nav ml-auto">
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="sitesButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Other Sites
-				</button>
-				<div class="dropdown-menu scrollable-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="categoryDropdown">
-				<div id="siteList">
-						<h6 class="dropdown-header">Machine Generated Clips</h6>
-						<a class="dropdown-item" id="non-jp-holojp" href="https://clip.holochatstats.info">HoloAutoClip</a>
-				</div>
-		</div>
-		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Donate', '#29abe0', 'J3J6SBRNS');kofiwidget2.draw();</script>
-		<a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/HoloChatStat" target="_blank">
-				<i class="fa fa-twitter">
-				</i>
-		</a>
-		</ul>
-		</div>
-	</nav>
+<div id="menu-container"></div>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
+			<option value="hl-2024-01">January 2024</option>
 			<option value="hl-2023-12">December 2023</option>
 			<option value="hl-2023-11">November 2023</option>
 			<option value="hl-2023-10">October 2023</option>
@@ -378,7 +309,7 @@ window.onload = function() {
 			<option value="hl-2020-07">July 2020</option>
 			<option value="hl-2020-06">June 2020</option>
 		</select>
-		<div style="color: #DEDEDE">Public, archived streams from own channel on YouTube only. <a href="stream-time-series">Click here</a> for stream time monthly trends.</div>
+		<div style="color: #DEDEDE">Public, archived streams from own channel on YouTube only. <a href="stream-time-series">Click here</a> for streaming hour monthly trends.</div>
 	<div class="graphs">
 		<div id="tldiv">
 			<canvas id="tlchart"></canvas>
