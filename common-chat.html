@@ -126,12 +126,22 @@ function updateChart() {
         tooltip.style("opacity", 1);
         d3.select(this).style("stroke", "green").style("opacity", 1);
       };
-      var mousemove = function (d) {
-        tooltip
-          .html("Percent of " + d.from  + "'s chat users in " + d.to + "'s chat: " + d.value)
-          .style("left", d3.mouse(this)[0] + 70 + "px")
-          .style("top", d3.mouse(this)[1] + 75 + "px");
-      };
+	  if ($("#minComments").val() == "member") {
+		  var mousemove = function (d) {
+			tooltip
+			  .html("Percent of " + d.from  + "'s members in " + d.to + "'s membership: " + d.value)
+			  .style("left", d3.mouse(this)[0] + 70 + "px")
+			  .style("top", d3.mouse(this)[1] + 75 + "px");
+		  };
+	  }
+	  else {
+		  var mousemove = function (d) {
+			tooltip
+			  .html("Percent of " + d.from  + "'s chat users in " + d.to + "'s chat: " + d.value)
+			  .style("left", d3.mouse(this)[0] + 70 + "px")
+			  .style("top", d3.mouse(this)[1] + 75 + "px");
+		  };
+	  }
       var mouseleave = function (d) {
         tooltip.style("opacity", 0);
         d3.select(this).style("stroke", "none").style("opacity", 0.8);
@@ -305,13 +315,15 @@ window.onload = function() {
 			<option value="id">ID</option>
 			<option value="all">All (2/2022 and earlier)</option>
 		</select>
-		<label style="color: #DEDEDE">Min. Comments per Member: </label>
+		<label style="color: #DEDEDE">Min. Chats per Holo: </label>
 		<select id="minComments">
 			<option value="1">1</option>
 			<option value="3">3</option>
 			<option value="10">10</option>
+			<option value="member">1 (Member)</option>
 		</select>
-	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data. Min. comments option available from September 2021 onwards.</div>
+	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data. 
+		Min. chats option available from Sept. 2021 onwards, common members from Jan. 2024 onwards.</div>
 	<div class="graphs">
 		<div id="hmdiv">
 		</div>
