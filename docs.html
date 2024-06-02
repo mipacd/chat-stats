@@ -2,6 +2,7 @@
 	<head>
 	<title>HoloChatStats: Documentation</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta charset="UTF-8">
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
 	<meta name="description" content="Monthly Hololive chat statistics">
@@ -35,19 +36,33 @@
 	p,h1,h2,h3,h4,h5 {
 		color: #DEDEDE;
 	}
+	a {
+		color: #1E90FF;
+	}
 </style>
 </head>
 <body style="background-color:#221F1E;">
 <div id="menu-container"></div>
 	<div>
-	<h1>Dataset Information</h1>
+	<h1>Overview/Site Map</h1>
+	<p>All data is calcuated using public, archived streams on YouTube only (unless otherwise noted).</p>
 	<h3>Language</h3>
-	<p>Percentages reflect chat messages that do/don't contain Japanese characters. Messages containing only Unicode emojis or membership stickers are ignored. Average message rates are available from March 2021.</p>
+	<p><a href="nonjp-holojp">Non-JP %/Rate (HoloJP)</a>: Percentage of chat messages that are not in Japanese for each month. HoloJP and DEV_IS only.</p>
+	<p><a href="jp-holoiden">JP %/Rate (HoloID/HoloEN)</a>: Percentage of chat messages that are in Japanese for each month. HoloEN and HoloID only.</p>
+	<p><a href="langsum">Language Summary Stats</a>: Means and standard deviations of JP and non-JP percentages and rates for JP (including DEV_IS), EN, and ID branches.</p>
+	<p><a href="chat-makeup">Avg. Chat Makeup</a>: Breakdown of chat message types in average messages per minute. Breakdown includes messages in Japanese, Korean, Russian, emotes, and messages that don't fit into any of the other categories (EN/ES/ID/etc.).</p>
 	<h3>Translations</h3>
-	<p>Data is based on the number of chat messages starting from a list of known translation tags. Streams designated as English streams on Japanese language channels and covers are ignored. The top live translated streams list shows streams that have an average of one translation per minute or more. These streams are best enjoyed with the LiveTL (<a href="https://chrome.google.com/webstore/detail/livetl-translation-filter/moicohcfhhbmmngneghfjfjpdobmmnlg" target="_blank">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/livetl/" target="_blank">Firefox</a>) or ytcfilter (<a href="https://chrome.google.com/webstore/detail/ytcfilter/mnldnbhgfocmkehnlkeanlhfmopepnko" target="_blank">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/ytcfilter/" target="_blank">Firefox</a>) extensions.</p>
+	<p><a href="en-livetl">English Live Translations</a>: Bar graphs of the average English live translations per minute and total number of English live translations. Properly tagged, in-chat translations only.</p>
+	<p><a href="en-tl-stream">English Top Live Translated Streams</a>: A list of all streams in a given month where the average live translation rate is greater than or equal to one live translation per minute. Sortable by generation, translations per minute, and streamer.</p>
 	<h3>Users</h3>
-	<p>The common user heatmap is a matrix containing percentages of a member's chat that have commented in another member's chat in a given month. Mouse over each square to view the exact value. The exclusive user charts show the percentage of a member's chat that did not comment in any other member's chat in a given month.</p>
-	<h3>Stream Time</h3>
-	<p>Stream times are based on data of public streams reported by the YouTube API at the time of retrieval. Times are on a per-channel basis and do not reflect time in collabs on other channels. Streams on other platforms (like Twitch), unarchived streams, and member streams are not counted.</p>
+	<p><a href="common-chat">Common User Heatmap</a>: Heatmap of the percentage of users shared between Hololive member's chats (percentage of x-axis' chat user's in y-axis' chat). Can be filtered to a minimum of 3 or 10 messages for each common chat user, or common membership percentages.</p>
+	<p><a href="excl-chat">Exclusive Chat Users</a>: Percentage of chat users for each Hololive member that did not participate in another Hololive member's chat.</p>
+	<p><a href="members">Member Counts</a>: Number of detected chat participating members in each Hololive members chat, broken down by membership rank (badge type).</p>
+	<p><a href="member-percent">Membership Percentages</a>: Percentage of chat users who participated in chat with a membership during the month for each Hololive member.</p>
+	<h3>Stream Time & Frequency</h3>
+	<p><a href="stream-time">Streaming Hour Stats</a>: A report containing the number of streaming hours, average stream time (for streams > 5 minutes), longest stream time, and change since the previous month for each Hololive member.</p>
+	<p><a href="stream-time-series">Streaming Hour Monthly Trend</a>: Line graphs showing the monthly streaming hours for each Hololive member.</p>
+	<p><a href="consistency">Streaming Hour Consistency</a>: Bar graphs showing streaming hour consistency in 3 month, 6 month, and 1 year timeframes. Consistency is measured by calculating the ratio of the mean of streaming hours to the standard deviation (inverse coefficient of variation).</p>
+	<p><a href="coverage">Activity Coverage Percentages</a>: Line graphs showing the percentage of days in a month where each Hololive member released content (streams, music, collabs, etc.). Unlike the other datasets, this data does include unarchived streams, membership streams, and collabs.</p>
 	</div>
 </body>
