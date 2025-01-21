@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Language Summary Stats</title>
+	<title>IndieChatStats: Member Percentages</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -24,43 +24,38 @@
 	</script>
 	<script>
 function updateChart() {
-	$("canvas#langchart").remove();
-	$("#langdiv").append('<canvas id="langchart"></canvas>');
+	$("canvas#mempercentchart").remove();
+	$("#mempercentdiv").append('<canvas id="mempercentchart"></canvas>');
 	Chart.defaults.global.defaultFontColor = "#DADADA";
-	if ($("#chartType option:selected").text().includes('%')) {
-		label = "%";
-	}
-	else {
-		label = "Avg. Msg per Min";
-	}
 	var config1 = {
-	type: 'line',
+	type: 'bar',
 	plugins: [ChartDataSource],
 	options: {
-		responsive: true,
 		title: {
 			display: true,
-			text: $("#chartType option:selected").text()
+			text: 'Membership Percentages: ' + $("#chartType option:selected").text()
+		},
+		legend: {
+			display: false
 		},
 		scales: {
 			xAxes: [{
-				stacked: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'Month'
+					labelString: 'Member'
 				},
 				ticks: {
 					autoSkip: false
 				}
 			}],
 			yAxes: [{
-				id: 'percent',
+				id: 'Percentage',
 				gridLines: {
-					drawOnChartArea: false
+					drawOnChartArea: true
 				},
 				scaleLabel: {
 					display: true,
-					labelString: label
+					labelString: 'Percentage'
 				},
 				ticks: {
 					suggestedMin: 0
@@ -70,9 +65,9 @@ function updateChart() {
 		plugins: {
 			datasource: {
 				type: 'csv',
-				url: 'csv/' + $("#chartType").val() + '.csv',
+				url: 'csv/member/percent/' + $("#chartType").val() + '.csv',
 				delimiter: ',',
-				rowMapping: 'dataset',
+				rowMapping: 'index',
 				datasetLabels: true,
 				indexLabels: true
 			},
@@ -82,11 +77,11 @@ function updateChart() {
 		}
 	}
 	};
-	var ctx = document.getElementById('langchart').getContext('2d');
-	window.langchart = new Chart(ctx, config1);
+	var ctx = document.getElementById('mempercentchart').getContext('2d');
+	window.mem_percent_chart = new Chart(ctx, config1);
 }
 window.onload = function() {
-	$("#menu-container").load("menu.html");
+	$("#menu-container").load("indie-menu.html");
 	$("#chartType").on('change', updateChart)
 	updateChart();
 };
@@ -105,21 +100,17 @@ window.onload = function() {
 </head>
 <body style="background-color:#221F1E;">
 <div id="menu-container"></div>
-	<label style="color: #DEDEDE">Chart Select: </label>
-	<select id="chartType">
-			<option value="hl-nonjp-mean">HoloJP NonJP Mean %</option>
-			<option value="hl-nonjp-mean-rate">HoloJP NonJP Mean Rate</option>
-			<option value="hl-nonjp-stdev">HoloJP NonJP % Standard Deviation</option>
-			<option value="hl-nonjp-stdev-rate">HoloJP NonJP Rate Standard Deviation</option>
-			<option value="hl-jp-mean">HoloEN/ID JP Mean %</option>
-			<option value="hl-jp-mean-rate">HoloEN/ID JP Mean Rate</option>
-			<option value="hl-jp-stdev">HoloEN/ID JP % Standard Deviation</option>
-			<option value="hl-jp-stdev-rate">HoloEN/ID JP Rate Standard Deviation</option>
+		<label style="color: #DEDEDE">Month: </label>
+		<select id="chartType">
+			<option value="ind-2025-01">January 2025</option>
+			<option value="ind-2024-12">December 2024</option>
+			<option value="ind-2024-11">November 2024</option>
+			<option value="ind-2024-10">October 2024</option>
 		</select>
-	<div style="color: #DEDEDE">Click chart labels below title to toggle members.</div>
+		<div style="color: #DEDEDE">The percentage of members from all detected chat users.</div>
 	<div class="graphs">
-		<div id="langdiv">
-			<canvas id="langchart"></canvas>
+		<div id="mempercentdiv">
+			<canvas id="mempercentchart"></canvas>
 		</div>
 	</div>
 </body>

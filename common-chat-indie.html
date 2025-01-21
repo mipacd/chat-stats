@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Common Chat Heatmap</title>
+	<title>IndieChatStats: Common Chat Heatmap</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -53,21 +53,11 @@ function updateChart() {
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
 	var path = "";
-	if ($("#branch").val() == "all") {
-		if ($("#minComments").val() != "1") {
-			path = "csv/common/" + $("#chartType").val() + "_" + $("#minComments").val() + ".csv";
-		}
-		else {
-			path = "csv/common/" + $("#chartType").val() + ".csv";
-		}
+	if ($("#minComments").val() != "1") {
+		path = "csv/common/" + $("#chartType").val() + "_" + $("#minComments").val() + ".csv";
 	}
 	else {
-		if ($("#minComments").val() != "1") {
-			path = "csv/common/" + $("#chartType").val() + "_" + $("#branch").val() + "_" + $("#minComments").val() + ".csv";
-		}
-		else {
-			path = "csv/common/" + $("#chartType").val() + "_" + $("#branch").val() + ".csv";
-		}
+		path = "csv/common/" + $("#chartType").val() + ".csv";
 	}
 
   d3.csv(
@@ -233,7 +223,7 @@ function updateChart() {
     resize();
 }
 window.onload = function() {
-	$("#menu-container").load("menu.html");
+	$("#menu-container").load("indie-menu.html");
 	$("#chartType").on('change', updateChart)
 	$("#minComments").on('change', updateChart)
 	$("#branch").on('change', updateChart)
@@ -263,78 +253,19 @@ window.onload = function() {
 <div id="menu-container"></div>
 		<label style="color: #DEDEDE">Month: </label>
 		<select id="chartType">
-			<option value="hl-2024-12">December 2024</option>
-			<option value="hl-2024-11">November 2024</option>
-			<option value="hl-2024-10">October 2024</option>
-			<option value="hl-2024-09">September 2024</option>
-			<option value="hl-2024-08">August 2024</option>
-			<option value="hl-2024-07">July 2024</option>
-			<option value="hl-2024-06">June 2024</option>
-			<option value="hl-2024-05">May 2024</option>
-			<option value="hl-2024-04">April 2024</option>
-			<option value="hl-2024-03">March 2024</option>
-			<option value="hl-2024-02">February 2024</option>
-			<option value="hl-2024-01">January 2024</option>
-			<option value="hl-2023-12">December 2023</option>
-			<option value="hl-2023-11">November 2023</option>
-			<option value="hl-2023-10">October 2023</option>
-			<option value="hl-2023-09">September 2023</option>
-			<option value="hl-2023-08">August 2023</option>
-			<option value="hl-2023-07">July 2023</option>
-			<option value="hl-2023-06">June 2023</option>
-			<option value="hl-2023-05">May 2023</option>
-			<option value="hl-2023-04">April 2023</option>
-			<option value="hl-2023-03">March 2023</option>
-			<option value="hl-2023-02">February 2023</option>
-			<option value="hl-2023-01">January 2023</option>
-			<option value="hl-2022-12">December 2022</option>
-			<option value="hl-2022-11">November 2022</option>
-			<option value="hl-2022-10">October 2022</option>
-			<option value="hl-2022-09">September 2022</option>
-			<option value="hl-2022-08">August 2022</option>
-			<option value="hl-2022-07">July 2022</option>
-			<option value="hl-2022-06">June 2022</option>
-			<option value="hl-2022-05">May 2022</option>
-			<option value="hl-2022-04">April 2022</option>
-			<option value="hl-2022-03">March 2022</option>
-			<option value="hl-2022-02">February 2022</option>
-			<option value="hl-2022-01">January 2022</option>
-			<option value="hl-2021-12">December 2021</option>
-			<option value="hl-2021-11">November 2021</option>
-			<option value="hl-2021-10">October 2021</option>
-			<option value="hl-2021-09">September 2021</option>
-			<option value="hl-2021-08">August 2021</option>
-			<option value="hl-2021-07">July 2021</option>
-			<option value="hl-2021-06">June 2021</option>
-		    <option value="hl-2021-05">May 2021</option>
-			<option value="hl-2021-04">April 2021</option>
-			<option value="hl-2021-03">March 2021</option>
-			<option value="hl-2021-02">February 2021</option>
-			<option value="hl-2021-01">January 2021</option>
-			<option value="hl-2020-12">December 2020</option>
-			<option value="hl-2020-11">November 2020</option>
-			<option value="hl-2020-10">October 2020</option>
-			<option value="hl-2020-09">September 2020</option>
-			<option value="hl-2020-08">August 2020</option>
-			<option value="hl-2020-07">July 2020</option>
-			<option value="hl-2020-06">June 2020</option>
+			<option value="ind-2025-01">January 2025</option>
+			<option value="ind-2024-12">December 2024</option>
+			<option value="ind-2024-11">November 2024</option>
+			<option value="ind-2024-10">October 2024</option>
 		</select>
-		<label style="color: #DEDEDE">Branch: </label>
-		<select id="branch">
-			<option value="en">EN</option>
-			<option value="jp">JP+DEV_IS</option>
-			<option value="id">ID</option>
-			<option value="all">All (2/2022 and earlier)</option>
-		</select>
-		<label style="color: #DEDEDE">Min. Chats per Holo: </label>
+		<label style="color: #DEDEDE">Min. Chats per Streamer: </label>
 		<select id="minComments">
 			<option value="1">1</option>
 			<option value="3">3</option>
 			<option value="10">10</option>
 			<option value="member">1 (Member)</option>
 		</select>
-	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data. 
-		Min. chats option available from Sept. 2021 onwards, common members from Jan. 2024 onwards.</div>
+	<div style="color: #DEDEDE">Note: This data is based on simple name matching and does not account for duplicate names and alt accounts. Collabs and differences in the amount of unique chat users affect this data.</div>
 	<div class="graphs">
 		<div id="hmdiv">
 		</div>

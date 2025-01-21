@@ -1,6 +1,6 @@
 <head>
 	<head>
-	<title>HoloChatStats: Language Summary Stats</title>
+	<title>IndieChatStats: Non-JP %/Rates - JP</title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -27,7 +27,7 @@ function updateChart() {
 	$("canvas#langchart").remove();
 	$("#langdiv").append('<canvas id="langchart"></canvas>');
 	Chart.defaults.global.defaultFontColor = "#DADADA";
-	if ($("#chartType option:selected").text().includes('%')) {
+	if ($("#chartType option:selected").text().endsWith('%')) {
 		label = "%";
 	}
 	else {
@@ -86,7 +86,7 @@ function updateChart() {
 	window.langchart = new Chart(ctx, config1);
 }
 window.onload = function() {
-	$("#menu-container").load("menu.html");
+	$("#menu-container").load("indie-menu.html");
 	$("#chartType").on('change', updateChart)
 	updateChart();
 };
@@ -107,16 +107,10 @@ window.onload = function() {
 <div id="menu-container"></div>
 	<label style="color: #DEDEDE">Chart Select: </label>
 	<select id="chartType">
-			<option value="hl-nonjp-mean">HoloJP NonJP Mean %</option>
-			<option value="hl-nonjp-mean-rate">HoloJP NonJP Mean Rate</option>
-			<option value="hl-nonjp-stdev">HoloJP NonJP % Standard Deviation</option>
-			<option value="hl-nonjp-stdev-rate">HoloJP NonJP Rate Standard Deviation</option>
-			<option value="hl-jp-mean">HoloEN/ID JP Mean %</option>
-			<option value="hl-jp-mean-rate">HoloEN/ID JP Mean Rate</option>
-			<option value="hl-jp-stdev">HoloEN/ID JP % Standard Deviation</option>
-			<option value="hl-jp-stdev-rate">HoloEN/ID JP Rate Standard Deviation</option>
+			<option value="ind-jp">JP NonJP%</option>
+			<option value="ind-jp-rate">JP NonJP Rate</option>
 		</select>
-	<div style="color: #DEDEDE">Click chart labels below title to toggle members.</div>
+	<div style="color: #DEDEDE">Click chart labels below title to toggle streamers.</div>
 	<div class="graphs">
 		<div id="langdiv">
 			<canvas id="langchart"></canvas>

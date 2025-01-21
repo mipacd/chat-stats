@@ -1,0 +1,14 @@
+from,to,value
+Dooby,Dooby,
+Nimi,Dooby,9.1
+Rica,Dooby,2.12
+Sakuna,Dooby,0.46
+Dooby,Nimi,22.12
+Rica,Nimi,2.12
+Sakuna,Nimi,0.49
+Dooby,Rica,0.77
+Nimi,Rica,0.32
+Sakuna,Rica,2.43
+Dooby,Sakuna,0.71
+Nimi,Sakuna,0.32
+Rica,Sakuna,10.44
